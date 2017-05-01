@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <meta charset="utf-8">
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by shoaibmahmud (http://jsbin.com/jogeyes/7/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width">
+  <title> Final PROJECT</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" /> 
+
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+	<script src="https://indicator.extension.iastate.edu/classes/leaflet-ajax-gh-pages/dist/leaflet.ajax.min.js"></script>
+
+<style id="jsbin-css">
+
+
+#map1container {
+   position:absolute;
+  background-color:#df65b0;
+  color: black;
+  text-align: center;
+  margin-right:0px;
+	margin-left:0px;
+    width: 400px;
+    height: 400px;
+  
+}
+#map3container {
+   position:absolute;
+  background-color:#756bb1;
+  color: black;
+  text-align: center;
+  margin-right:0px;
+	margin-left:0px;
+    width: 400px;
+    height: 400px;
+  
+}
+
+#map2container {
+   position:absolute;
+  background-color:#252525;
+  color: white;
+  text-align: center;
+  margin-right:0px;
+	margin-left:770px;
+    width: 400px;
+    height: 400px;
+  
+}
+
+
+
+#map1 {
+  
+     position:relative;
+     width: 750px;
+     height: 400px;
+     margin-left: 420px;
+     border-left: 2px solid gray;
+     padding: 1em;
+     overflow: hidden;
+  
+    /* background-color: red;*/
+     
+}
+#map {
+  
+      position:relative;
+     width: 750px;
+     height: 400px;
+     margin-right: 420px;
+     border-right: 2px solid gray;
+     
+     padding: 1em;
+     overflow: hidden;
+  
+    /* background-color: red;*/
+     
+}
+
+#map2 {
+  
+      position:relative;
+     width: 750px;
+     height: 400px;
+     margin-left: 420px;
+     border-left: 2px solid gray;
+     
+     padding: 1em;
+     overflow: hidden;
+  
+    /* background-color: red;*/
+     
+}
+
+#map3 {
+  
+      position:relative;
+     width: 750px;
+     height: 400px;
+     margin-right: 420px;
+     border-right: 2px solid gray;
+     
+     padding: 1em;
+     overflow: hidden;
+  
+    /* background-color: red;*/
+     
+}
+
+#container {
+	background-color: white;
+	width: 1200px;
+	margin-right: 350px;
+	margin-left: auto;
+   border-style: solid;
+   border-width: 5px;
+  background-image: url("https://shoaibmahmud.github.io/finalproject/11479620-info-text-graphics-and-arrangement-concept-on-white-background-word-cloud.jpg");
+}
+
+#image= {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+#header1  {
+  margin-left: 10px;
+	background-color: #02818a;
+	color: white;
+	text-align: center;
+}
+
+#header, #footer {
+	clear: both;
+	padding: 10px;
+	background-color: #02818a;
+	color: white;
+	text-align: center;
+}
+
+/* Css for top manubar */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+/* Css for top manubar end */
+
+
+
+.legend {
+    line-height: 20px;
+    color: #555;
+    }
+    .legend i {
+        width: 14px;
+        height: 30px;
+        float: left;
+        margin-right: 4px;
+        opacity: 1;
+    }
+    .info {
+        padding: 4px 8px;
+        font: 10px/15px Arial, Helvetica, sans-serif;
+        background: rgba(255,255,255,0.8);
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        border-radius: 7px;
+
+    }
+
+</style>
+</head>
+<body>
+  
+ 
+     <div id="container">
+   <div id="manubar">
+      <ul>
+           <li><a class="active" href="#map1">Poverty Map</a></li>
+           <li><a href="#map">Who is Poor?</a></li>
+           <li><a href="#map2">Cost Burden and GDP</a></li>
+            <li><a href="#map3">Project Presentation</a></li>
+      </ul>
+   </div>
+  
+   <div id = "header">
+
+       <div id="header1">
+        <img id="image" src="https://shoaibmahmud.github.io/finalproject/poverty-end-poverty-now.jpg" alt="Mountain View" style="width:500px;height:220px;" align="left" opacity= "0.3">
+       <h1 id="title">Mapping Poverty:Reasons and Indicators of Poverty in        US </h1>
+        <b> Web mapping 2017 | Final Project </b> <br>
+       <b>Shoaib Mahmud |Submission Date:4/30/2017 </b> <br> <br><br> <br><br> <br><br>
+       </div>
+
+   </div>
+<br>      
+       
+       
+       
+           <div  id='map1container'>
+             <h2 > <b> Poverty Map of US </b> </h2>
+             <h3 id="text1">Quick Facts</h3>
+               <br><b> The Official Poverty Rate:</b> 13.5 percent
+              <br> <b> Number of People Below Poverty Line : </b>
+               43.1 million
+               <br> <b> Number of People Below Deep Poverty Line : </b>
+              17.1 million <br>
+               
+             Lower amount of the gross domestic product, higher cost burden of housing, high percentage of illicit drug use are some of the major reasons  of Poverty in US. <br> <br>
+            
+             Please click to see the richest and poorest state in US <br> <br>
+             
+     <div class="btn-group " data-toggle="buttons">
+          <label class="btn btn-success" id="shoaibbg">
+            <input type="radio" name="options" id="shoaibge" autocomplete="off"> Richest State of US
+          </label>
+          <label class="btn btn-danger" id="shoaibbg2">
+            <input type="radio" name="options" id="university1" autocomplete="off"> Poorest State of US
+          </label>
+           </div>
+          </div>
+       
+       
+           <div class="sametext" id='map1'></div>
+           <br> <br>
+       <div  id='map2container'>
+         <h2 > <b> Who is Poor? </b> </h2>
+The poverty is related to population distribution. Poverty rates for blacks and Hispanics greatly exceed the national average.  <br> Please, click below to see the population distribution by ethnic groups which is a significant indicator of poverty.
+         
+          <div class="btn-group-justified">
+         <div class="btn-group">
+             <br>
+             <button type="button" id="white" color="black" class="btn btn-info btn-sm "> White </button>
+             <button type="button" id="black" class="btn btn-default btn-sm"> Black</button> 
+             <button type="button" id="hispanic" class="btn btn-info btn-sm"> Hispanic</button> 
+             <button type="button" id="asian" class="btn btn-default btn-sm"> Asian</button> 
+             <button type="button" id="americanIndian" class="btn btn-info btn-sm">American Indian/Alaska Native</button> 
+             <button type="button" id="nativeHawaiian" class="btn btn-default btn-sm"> Native Hawaiian </button> 
+             <button type="button" id="moreRaces" class="btn btn-info btn-sm"> Two Or More Races </button> <br> <br>
+          </div>
+      </div>
+       </div>
+     <div id='map'></div>
+<br> <br>
+     <div  id='map3container'>
+       <h2 > <b> GDP and Cost Burden for Housing </b> </h2>
+       These are also two important indicators of Poverty.The definition of GDP and Housing Cost Burden are provided below:
+       <br>
+       <b> Housing Cost Burden : </b> Percentage of household income spent for mortgage costs or gross rent. According to HUD programs, households spending more than 30 percent of income for these housing costs are considered to be "cost-burdened".
+          <br>
+       <b>GDP : </b> GDP is the total value of everything produced by all the people and companies in the country. It doesn't matter if they are citizens or foreign-owned companies. If they are located within the state's boundaries, the government counts their production as GDP. 
+       
+       These two indicators mainly shows us where the resources are available and where we need the resources.
+       
+       
+       </div>
+     <div id='map2'></div>
+<br> <br>
+ 
+ 
+ 
+  <div id = "footer">
+    Shoaib Mahmud, Department of Community and     Regional Planning, ISU
+  </div>
+</div>
+       
+<script>
+$(document).ready(function() {
+
+ //basemap
+var Hydda_Base = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png', {
+	maxZoom: 18,
+	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+    var Esri_NatGeoWorldMap =
+        L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+          attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+          maxZoom: 16
+    });
+
+  var OpenStreetMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+
+
+//map
+var map = L.map('map', {
+    		center: new L.LatLng(41.8780, -93.4507),
+    		zoom: 4,
+    		layers: [OpenStreetMap]
+		});
+var baseMaps = {
+  "Topgraphy Map": Esri_NatGeoWorldMap,
+	"Open Street Map": OpenStreetMap,
+  "Sea Map":Hydda_Base,
+};
+
+L.control.layers(baseMaps).addTo(map);
+
+
+
+//get color
+function getColor1(d) {
+    return d <= '247600' ? '#ccece6' :
+    d <= '1647200' ? "#99d8c9" :
+   d <= '3735000' ? "#41ae76" :
+    d <='6153900' ? "#238b45" :
+   d <= '15175500' ? "#005824" :
+    "#0e230e";
+}
+
+
+function style2(feature) {
+    return {
+        fillColor: getColor1(feature.properties.White),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.8
+    };
+}
+
+
+//geojson
+link="https://shoaibmahmud.github.io/finalproject/finalstate.json";
+
+
+var white = new L.GeoJSON.AJAX(link , {
+	style: style2,
+  onEachFeature: function (feature, layer) {
+        htmlText = "<strong>" + feature.properties.NAME+ "</strong><br><strong> Total Population : </strong>"  + feature.properties.Total1 + "<br><strong>Total Number ofWhite People : </strong>"+feature.properties.White+"<strong><br> Percentage of White People : </strong>"+feature.properties.White_P+"%";
+        layer.bindPopup(htmlText);
+    layer.bindTooltip(feature.properties.NAME);
+    }
+});
+
+var legend1 = L.control({
+  position: 'bottomleft'
+});
+
+legend1.onAdd = function(map) {
+
+  var div = L.DomUtil.create('div', 'info legend'),
+    pop_size = [247600,3735000, 6153900,15175500],
+    labels = ['0-247601','247601-3735000', '3735001-6153900', '6153901- 15175500'];
+
+
+   div.innerHTML += "<strong> Population Size</strong><br> <br>";
+
+  for (var i = 0; i < pop_size.length; i++) {
+    div.innerHTML +=
+      '<i style="background:' + getColor1(pop_size[i] ) + ' "></i> ' +
+       labels[i]+'<br><br>';
+  }
+
+  return div;
+};
+
+
+
+//Black People
+
+function getColor2(d) {
+    return d <= '5400' ? '#bfd3e6' :
+    d <= '681400' ? "#9ebcda" :
+   d <= '1471500' ? "#8c96c6" :
+    d <='1582500' ? "#8c6bb1" :
+   d <= '3198600' ? "#88419d" :
+    "#6e016b";
+}
+
+
+function style3(feature) {
+    return {
+       fillColor: getColor2(feature.properties.Black),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.8
+    };
+}
+
+//geojson
+link="https://shoaibmahmud.github.io/finalproject/finalstate.json";
+
+
+var black = new L.GeoJSON.AJAX(link , {
+	style: style3,
+  onEachFeature: function (feature, layer) {
+        htmlText = "<strong>" + feature.properties.NAME+ "</strong><br><strong> Total Population : </strong>"  + feature.properties.Total1 + "<br><strong>Total Number of Black People : </strong>"+feature.properties.Black+"<strong><br> Percentage of Black People : </strong>"+feature.properties.Black_P+"%";
+        layer.bindPopup(htmlText);
+    layer.bindTooltip(feature.properties.NAME);
+    }
+});
+
+
+var legend2 = L.control({
+  position: 'bottomleft'
+});
+
+legend2.onAdd = function(map) {
+
+  var div = L.DomUtil.create('div', 'info legend'),
+    pop_size = [681400,1471500, 2095200,3198601],
+    labels = ['0-681400','681401-1471500', '1471501-1582500', '2095200- 3198601'];
+
+
+   div.innerHTML += "<strong> Population Size</strong><br> <br>";
+
+  for (var i = 0; i < pop_size.length; i++) {
+    div.innerHTML +=
+      '<i style="background:' + getColor2(pop_size[i] ) + ' "></i> ' +
+       labels[i]+'<br><br>';
+  }
+
+  return div;
+};
+//Hispanic People
+
+function getColor3(d) {
+    return d <= '247600' ? '#fee8c8' :
+    d <= '1647200' ? "#fdbb84" :
+   d <= '3735000' ? "#fc8d59" :
+    d <='6153900' ? "#ef6548" :
+   d <= '15175500' ? "#d7301f" :
+    "#990000";
+}
+
+
+function style4(feature) {
+    return {
+       fillColor: getColor3(feature.properties.Hispanic),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.8
+    };
+}
+
+//geojson
+link="https://shoaibmahmud.github.io/finalproject/finalstate.json";
+
+var hispanic= new L.GeoJSON.AJAX(link , {
+	style: style4,
+  onEachFeature: function (feature, layer) {
+        htmlText = "<strong>" + feature.properties.NAME+ "</strong><br><strong> Total Population : </strong>"  + feature.properties.Total1 + "<br><strong>Total Number of Hispanic People : </strong>"+feature.properties.Hispanic+"<strong><br> Percentage of Hispanic People : </strong>"+feature.properties.Hispanic_P+"%";
+        layer.bindPopup(htmlText);
+    layer.bindTooltip(feature.properties.NAME);
+    }
+});
+
+
+var legend3 = L.control({
+  position: 'bottomleft'
+});
+
+legend3.onAdd = function(map) {
+
+  var div = L.DomUtil.create('div', 'info legend'),
+    pop_size = [247600,1647200, 6153900,15175500],
+    labels = ['0-247600','247601-1647200', '1647201-6153900', '6153901- 15175500'];
+
+
+   div.innerHTML += "<strong> Population Size</strong><br> <br>";
+
+  for (var i = 0; i < pop_size.length; i++) {
+    div.innerHTML +=
+      '<i style="background:' + getColor3(pop_size[i] ) + ' "></i> ' +
+       labels[i]+'<br><br>';
+  }
+
+  return div;
+};
+
+//AsianPeople
+
+function getColor4(d) {
+    return d <= '3100' ? '#ece7f2' :
+    d <= '250700' ? "#d0d1e6" :
+   d <= '549500' ? "#a6bddb" :
+    d <='940900' ? "#3690c0" :
+   d <= '5773700' ? "#0570b0" :
+    "#034e7b";
+}
+
+
+function style5(feature) {
+    return {
+       fillColor: getColor4(feature.properties.Asian),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.8
+    };
+}
+
+//geojson
+link="https://shoaibmahmud.github.io/finalproject/finalstate.json";
+
+
+var asian= new L.GeoJSON.AJAX(link , {
+	style: style5,
+  onEachFeature: function (feature, layer) {
+        htmlText = "<strong>" + feature.properties.NAME+ "</strong><br><strong> Total Population : </strong>"  + feature.properties.Total1 + "<br><strong>Total Number of Asian People : </strong>"+feature.properties.Asian+"<strong><br> Percentage of Asian People : </strong>"+feature.properties.Asian_P+"%";
+        layer.bindPopup(htmlText);
+    layer.bindTooltip(feature.properties.NAME);
+    }
+});
+
+
+var legend4 = L.control({
+  position: 'bottomleft'
+});
+
+legend4.onAdd = function(map) {
+
+  var div = L.DomUtil.create('div', 'info legend'),
+    pop_size = [3100,250700, 940900,5773700],
+    labels = ['0-3100','250700-549500', '549501-940900', '940901- 5773700'];
+
+
+   div.innerHTML += "<strong> Population Size</strong><br> <br>";
+
+  for (var i = 0; i < pop_size.length; i++) {
+    div.innerHTML +=
+      '<i style="background:' + getColor4(pop_size[i] ) + ' "></i> ' +
+       labels[i]+'<br><br>';
+  }
+
+  return div;
+};
+
+//americanIndian
+
+function getColor5(d) {
+    return d <= '15800' ? '#fff7bc' :
+    d <= '37300' ? "#fee391" :
+   d <= '55200' ? "#fe9929" :
+    d <='113800' ? "#ec7014" :
+   d <= '352400' ? "#8c2d04" :
+    "#ffffe5";
+}
+
+
+function style6(feature) {
+    return {
+       fillColor: getColor5(feature.properties.American_1),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.8
+    };
+}
+
+//geojson
+link="https://shoaibmahmud.github.io/finalproject/finalstate.json";
+
+
+var americanIndian= new L.GeoJSON.AJAX(link , {
+	style: style6,
+  onEachFeature: function (feature, layer) {
+        htmlText = "<strong>" + feature.properties.NAME+ "</strong><br><strong> Total Population : </strong>"  + feature.properties.Total1 + "<br><strong>Total Number of American Indian People : </strong>"+feature.properties.American_1+"<strong><br> Percentage of American Indian People : </strong>"+feature.properties.American_+"%";
+        layer.bindPopup(htmlText);
+    layer.bindTooltip(feature.properties.NAME);
+    }
+});
+
+
+var legend5 = L.control({
+  position: 'bottomleft'
+});
+
+legend5.onAdd = function(map) {
+
+  var div = L.DomUtil.create('div', 'info legend'),
+    pop_size = [15800,55200, 113800,352400],
+    labels = ['15800-37300','37301-55200', '55201-113800', '113801- 113801'];
+
+
+   div.innerHTML += "<strong> Population Size</strong><br> <br>";
+
+  for (var i = 0; i < pop_size.length; i++) {
+    div.innerHTML +=
+      '<i style="background:' + getColor5(pop_size[i] ) + ' "></i> ' +
+       labels[i]+'<br><br>';
+  }
+
+  return div;
+};
+
+//Native Hawaiian
+
+function getColor6(d) {
+    return d <= '0' ? '#f0f0f0' :
+    d <= '2500' ? "#bdbdbd" :
+   d <= '7500' ? "#737373" :
+    d <='188800' ? "#525252" :
+   d <= '229000' ? "#252525" :
+    "#ffffff";
+}
+
+
+function style7(feature) {
+    return {
+       fillColor: getColor6(feature.properties.Hawaiian),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.8
+    };
+}
+//geojson
+link="https://shoaibmahmud.github.io/finalproject/finalstate.json";
+
+
+var nativeHawaiian= new L.GeoJSON.AJAX(link , {
+	style: style7,
+  onEachFeature: function (feature, layer) {
+        htmlText = "<strong>" + feature.properties.NAME+ "</strong><br><strong> Total Population : </strong>"  + feature.properties.Total1 + "<br><strong>Total Number of Native Hawaiian People : </strong>"+feature.properties.Hawaiian+"<strong><br> Percentage of Native Hawaiian People : </strong>"+feature.properties.Hawaiian_P+"%";
+        layer.bindPopup(htmlText);
+    layer.bindTooltip(feature.properties.NAME);
+    }
+});
+
+
+var legend6 = L.control({
+  position: 'bottomleft'
+});
+
+legend6.onAdd = function(map) {
+
+  var div = L.DomUtil.create('div', 'info legend'),
+    pop_size = [0,2500, 188800,229000],
+    labels = ['0-2500','2501-188800', '188801-113800', '113801- 229000'];
+
+
+   div.innerHTML += "<strong> Population Size</strong><br> <br>";
+
+  for (var i = 0; i < pop_size.length; i++) {
+    div.innerHTML +=
+      '<i style="background:' + getColor6(pop_size[i] ) + ' "></i> ' +
+       labels[i]+'<br><br>';
+  }
+
+  return div;
+};
+//Two or more races
+
+function getColor7(d) {
+    return d <= '10600' ? '#e7e1ef' :
+    d <= '56000' ? "#c994c7" :
+   d <= '131200' ? "#df65b0" :
+    d <='225100' ? "#ce1256" :
+   d <= '778300' ? "#91003f" :
+    "#f7f4f9";
+}
+
+
+function style8(feature) {
+    return {
+       fillColor: getColor7(feature.properties.Other),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.8
+    };
+}
+
+//geojson
+link="https://shoaibmahmud.github.io/finalproject/finalstate.json";
+
+
+var moreRaces= new L.GeoJSON.AJAX(link , {
+	style: style8,
+  onEachFeature: function (feature, layer) {
+        htmlText = "<strong>" + feature.properties.NAME+ "</strong><br><strong> Total Population : </strong>"  + feature.properties.Total1 + "<br><strong>Total Number of People of two or more races : </strong>"+feature.properties.Other+"<strong><br> Percentage of People of two or more races : </strong>"+feature.properties.Other_p+"%";
+        layer.bindPopup(htmlText);
+    layer.bindTooltip(feature.properties.NAME);
+    }
+});
+
+
+var legend7 = L.control({
+  position: 'bottomleft'
+});
+
+legend7.onAdd = function(map) {
+
+  var div = L.DomUtil.create('div', 'info legend'),
+    pop_size = [56000,131200, 225100,778300],
+    labels = ['10600-56000','56001-131200', '131201-225100', '225101- 778300'];
+
+
+   div.innerHTML += "<strong> Population Size</strong><br> <br>";
+
+  for (var i = 0; i < pop_size.length; i++) {
+    div.innerHTML +=
+      '<i style="background:' + getColor7(pop_size[i] ) + ' "></i> ' +
+       labels[i]+'<br><br>';
+  }
+
+  return div;
+};
+$("#white").click(function() {
+        map.removeLayer(black);
+        map.removeLayer(hispanic);
+        map.addLayer(white);
+        map.removeLayer(asian);
+        map.removeLayer(nativeHawaiian);
+        map.removeLayer(americanIndian);
+         map.removeLayer(moreRaces);
+        $("div button").removeClass("active");
+        $(this).addClass("active");
+        map.addControl(legend1);
+        map.removeControl(legend2);
+        map.removeControl(legend3);
+        map.removeControl(legend4);
+        map.removeControl(legend5);
+        map.removeControl(legend6);
+         map.removeControl(legend7);
+
+      });
+  $("#black").click(function() {
+        map.removeLayer(white);
+        map.removeLayer(hispanic);
+        map.addLayer(black);
+        map.removeLayer(asian);
+       map.removeLayer(nativeHawaiian);
+        map.removeLayer(americanIndian);
+        map.removeLayer(moreRaces);
+        $("div button").removeClass("active");
+        $(this).addClass("active");
+        map.addControl(legend2);
+        map.removeControl(legend1);
+        map.removeControl(legend3);
+        map.removeControl(legend4);
+        map.removeControl(legend5);
+        map.removeControl(legend6);
+        map.removeControl(legend7);
+      });
+    $("#hispanic").click(function() {
+        map.removeLayer(white);
+        map.removeLayer(black);
+        map.removeLayer(asian);
+        map.addLayer(hispanic);
+        map.removeLayer(nativeHawaiian);
+        map.removeLayer(americanIndian);
+        map.removeLayer(moreRaces);
+        $("div button").removeClass("active");
+        $(this).addClass("active");
+        map.addControl(legend3);
+        map.removeControl(legend2);
+        map.removeControl(legend1);
+        map.removeControl(legend4);
+        map.removeControl(legend5);
+        map.removeControl(legend6);
+         map.removeControl(legend7);
+      });
+ 
+    $("#asian").click(function() {
+        map.removeLayer(white);
+        map.removeLayer(black);
+        map.removeLayer(hispanic);
+        map.addLayer(asian);
+        map.removeLayer(nativeHawaiian);
+         map.removeLayer(moreRaces);
+        map.removeLayer(americanIndian);
+        $("div button").removeClass("active");
+        $(this).addClass("active");
+        map.addControl(legend4);
+        map.removeControl(legend2);
+        map.removeControl(legend1);
+        map.removeControl(legend3);
+        map.removeControl(legend5);
+        map.removeControl(legend6);
+         map.removeControl(legend7);
+
+      });
+   $("#americanIndian").click(function() {
+        map.removeLayer(white);
+        map.removeLayer(black);
+        map.removeLayer(hispanic);
+        map.removeLayer(asian);
+        map.removeLayer(nativeHawaiian);
+         map.removeLayer(moreRaces);
+        map.addLayer(americanIndian);
+        $("div button").removeClass("active");
+        $(this).addClass("active");
+        map.addControl(legend5);
+        map.removeControl(legend2);
+        map.removeControl(legend1);
+        map.removeControl(legend3);
+        map.removeControl(legend4);
+        map.removeControl(legend6);
+        map.removeControl(legend7);
+      });
+       $("#nativeHawaiian").click(function() {
+        map.removeLayer(white);
+        map.removeLayer(black);
+        map.removeLayer(hispanic);
+        map.removeLayer(asian);
+        map.removeLayer(americanIndian);
+        map.addLayer(nativeHawaiian);
+        map.removeLayer(moreRaces);
+        $("div button").removeClass("active");
+        $(this).addClass("active");
+        map.addControl(legend6);
+        map.removeControl(legend2);
+        map.removeControl(legend1);
+        map.removeControl(legend3);
+        map.removeControl(legend4);
+        map.removeControl(legend5);
+        map.removeControl(legend7);
+      });
+    $("#moreRaces").click(function() {
+        map.removeLayer(white);
+        map.removeLayer(black);
+        map.removeLayer(hispanic);
+        map.removeLayer(asian);
+        map.removeLayer(americanIndian);
+        map.removeLayer(nativeHawaiian);
+        map.addLayer(moreRaces);
+        $("div button").removeClass("active");
+        $(this).addClass("active");
+        map.addControl(legend7);
+        map.removeControl(legend2);
+        map.removeControl(legend1);
+        map.removeControl(legend3);
+        map.removeControl(legend4);
+        map.removeControl(legend5);
+        map.removeControl(legend6);
+      });
+   
+ });  
+
+
+// poverty Map: % of poverty is shown here 
+
+ $(document).ready(function() {
+
+ //basemap
+var Hydda_Base = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png', {
+	maxZoom: 18,
+	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+    var Esri_NatGeoWorldMap =
+        L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+          attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+          maxZoom: 16
+    });
+
+  var OpenStreetMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+
+
+//map
+var map1= L.map('map1', {
+    		center: new L.LatLng(41.8780, -93.4507),
+    		zoom: 4,
+    		layers: [OpenStreetMap]
+		});
+var baseMaps = {
+  "Topgraphy Map": Esri_NatGeoWorldMap,
+	"Open Street Map": OpenStreetMap,
+  "Sea Map":Hydda_Base,
+};
+
+L.control.layers(baseMaps).addTo(map1);
+//White People
+
+
+//get color
+function getColorp(d) {
+    return d <= '5' ? '#fff5f0' :
+    d <= '10' ? "#fee0d2" :
+   d <= '15' ? "#fc9272" :
+    d <='20' ? "#ef3b2c" :
+   d <= '25' ? "#99000d" :
+    "#fff5f0";
+}
+
+
+function stylep(feature) {
+    return {
+        fillColor: getColorp(feature.properties.Poverty_P),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.8
+    };
+}
+
+
+//geojson
+link="https://shoaibmahmud.github.io/finalproject/finalstate.json";
+
+
+
+var Poverty_P= new L.GeoJSON.AJAX(link , {
+	style: stylep,
+  onEachFeature: function (feature, layer) {
+        htmlText = "<strong>" + feature.properties.NAME+ "</strong><br><strong> Ranking : </strong>" +"No."+feature.properties.Poverty_R+" poor state"+"<strong><br> Percentage of People Below Poverty Line : </strong>"+feature.properties.Poverty_P+"%";
+        layer.bindPopup(htmlText);
+    layer.bindTooltip(feature.properties.NAME);
+    }
+}).addTo(map1);
+   
+ var legendp = L.control({
+  position: 'bottomleft'
+});
+ legendp.onAdd = function(map1) {
+
+  var div = L.DomUtil.create('div', 'info legend'),
+    pop_size = [0,10, 15,20],
+    labels = ['0-10 %','10-15%', '15-20%', '>20%'];
+
+
+   div.innerHTML += "<strong> Percentage of People <br> Below Poverty Line</strong><br> <br>";
+
+  for (var i = 0; i < pop_size.length; i++) {
+    div.innerHTML +=
+      '<i style="background:' + getColorp(pop_size[i] ) + ' "></i> ' +
+       labels[i]+'<br><br>';
+  }
+
+  return div;
+};
+legendp.addTo(map1);
+ 
+ var missipi= L.marker([32.35, -89.39]).bindPopup('Richest State').addTo(map1);
+   
+	Maine=L.marker([45.25,-69]).bindPopup('poorest state').addTo(map1);
+
+
+ $('#shoaibbg').click(function () {
+        map1.setView([32.35, -89.39], 6.5);
+    });
+
+    $('#shoaibbg2').click(function () {
+        map1.setView([45.25,-69], 6.5);
+    });
+ });  
+
+
+
+
+
+$(document).ready(function() {
+
+ //basemap
+var Hydda_Base = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png', {
+	maxZoom: 18,
+	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+    var Esri_NatGeoWorldMap =
+        L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+          attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+          maxZoom: 16
+    });
+
+  var OpenStreetMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+
+
+//map
+var map2= L.map('map2', {
+    		center: new L.LatLng(41.8780, -93.4507),
+    		zoom: 4,
+    		layers: [OpenStreetMap]
+		});
+var baseMaps = {
+  "Topgraphy Map": Esri_NatGeoWorldMap,
+	"Open Street Map": OpenStreetMap,
+  "Sea Map":Hydda_Base,
+};
+
+
+//geojson
+link="https://shoaibmahmud.github.io/finalproject/finalstate.json";
+  
+function getColordp(d) {
+    return d <= '10' ? '#a6d96a' :
+    d <= '20' ? "#99d8c9" :
+   d <= '30' ? "#ffffbf" :
+    d <='40' ? "#fdae61" :
+   d <= '51' ? "#d73027" :
+    "#d9ef8b";
+}
+
+
+function styledp(feature) {
+    return {
+        fillColor: getColordp(feature.properties.GDP_R),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.8
+    };
+}
+
+
+//geojson
+link="https://shoaibmahmud.github.io/finalproject/finalstate.json";
+
+
+var domesticproduct = new L.GeoJSON.AJAX(link , {
+	style: styledp,
+  onEachFeature: function (feature, layer) {
+        htmlText = "<strong>" + feature.properties.NAME+ "</strong><br><strong> Total GDP in Million: </strong>"  + feature.properties.GDP_M + "<br><strong>Rank : </strong>"+feature.properties.GDP_R;
+        layer.bindPopup(htmlText);
+    layer.bindTooltip(feature.properties.NAME);
+    }
+}).addTo(map2);
+
+function getColorcb(d) {
+    return d <= '10' ? '#d73027' :
+    d <= '20' ? "#fdae61" :
+   d <= '30' ? "#ffffbf" :
+    d <='40' ? "#99d8c9" :
+   d <= '51' ? "#a6d96a" :
+    "#d9ef8b";
+}
+
+
+function stylecb(feature) {
+    return {
+        fillColor: getColorcb(feature.properties.GDP_R),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.8
+    };
+}
+var costbrand = new L.GeoJSON.AJAX(link , {
+	style: stylecb,
+  onEachFeature: function (feature, layer) {
+        htmlText = "<strong>" + feature.properties.NAME+ "</strong><br><strong> % of People having more 30% cost-burben for housing: </strong>"  + feature.properties.Cburden_R1 + "<br><strong>Rank : </strong>"+feature.properties.Cburden_R;
+        layer.bindPopup(htmlText);
+    layer.bindTooltip(feature.properties.NAME);
+    }
+});
+
+  
+var legendcb = L.control({
+  position: 'bottomleft'
+});
+
+legendcb.onAdd = function(map2) {
+
+  var div = L.DomUtil.create('div', 'info legend'),
+    pop_size = [10,25, 40,50],
+    labels = ['0-10','10-25', '25-40', '40- 50'];
+
+
+   div.innerHTML += "<strong> Cost Burden Rank </strong><br> <br>";
+
+  for (var i = 0; i < pop_size.length; i++) {
+    div.innerHTML +=
+      '<i style="background:' + getColorcb(pop_size[i] ) + ' "></i> ' +
+       labels[i]+'<br><br>';
+  }
+
+  return div;
+};
+  
+legendcb.addTo(map2);
+  
+var legenddp = L.control({
+  position: 'bottomright'
+});
+
+  
+legenddp.onAdd = function(map2) {
+
+  var div = L.DomUtil.create('div', 'info legend'),
+    pop_size = [10,25, 40,50],
+    labels = ['0-10','10-25', '25-40', '40- 50'];
+
+
+   div.innerHTML += "<strong> GDP RANK</strong><br> <br>";
+
+  for (var i = 0; i < pop_size.length; i++) {
+    div.innerHTML +=
+      '<i style="background:' + getColordp(pop_size[i] ) + ' "></i> ' +
+       labels[i]+'<br><br>';
+  }
+
+  return div;
+};
+
+ legenddp.addTo(map2);
+ 
+ 
+var overlays = {
+  "GDP RANK": domesticproduct,
+  "Cost Burden Rank" :costbrand
+  
+};
+  
+L.control.layers(baseMaps, overlays).addTo(map2);
+
+ });
+</script>
+<script src="http://static.jsbin.com/js/render/edit.js?3.41.10"></script>
+<script>jsbinShowEdit && jsbinShowEdit({"static":"http://static.jsbin.com","root":"http://jsbin.com"});</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-1656750-34', 'auto');
+ga('require', 'linkid', 'linkid.js');
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
+
+
+
+  
